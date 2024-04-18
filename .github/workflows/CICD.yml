@@ -19,8 +19,8 @@ on:
   pull_request:
   push:
     tags:
-    branches:
-      - main
+    # branches:
+    #   - main
 
 permissions:
   contents: read # to fetch code (actions/checkout)
@@ -1062,8 +1062,8 @@ jobs:
     - name: build and test all programs individually
       shell: bash
       run: |
-        for f in $(util/show-utils.sh); \
-        do \
-          echo "Building and testing $f"; \
-          cargo test -p "uu_$f" || exit 1; \
+        for f in $(util/show-utils.sh)
+        do
+          echo "Building and testing $f"
+          cargo test -p "uu_$f" || exit 1
         done
